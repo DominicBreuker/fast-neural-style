@@ -1,5 +1,10 @@
 FROM kaixhin/cuda-torch:latest
 
+RUN sudo apt-get -y install python2.7-dev && \
+    sudo apt-get -y install libhdf5-dev && \
+    sudo apt-get -y install python-pip && \
+    sudo pip install virtualenv
+
 RUN luarocks install torch && \
     luarocks install nn && \
     luarocks install image && \
@@ -9,10 +14,6 @@ RUN luarocks install torch && \
     luarocks install cudnn && \
     luarocks install https://raw.githubusercontent.com/deepmind/torch-hdf5/master/hdf5-0-0.rockspec
 
-RUN sudo apt-get -y install python2.7-dev && \
-    sudo apt-get -y install libhdf5-dev && \
-    sudo apt-get -y install python-pip && \
-    sudo pip install virtualenv
 
 COPY . /fast_neural_style
 
