@@ -2,6 +2,6 @@
 .gitignore
 .dockerignore
 bin/
-docker/
+Dockerfile
 input/
 output/
